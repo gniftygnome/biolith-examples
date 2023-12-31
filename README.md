@@ -56,3 +56,28 @@ biolith_version=1.2.0-alpha.2
 ```
 
 For convenience, [Biolith can also be downloaded from Modrinth](https://modrinth.com/mod/biolith).
+
+## Old examples from the Biolith README
+
+```java
+public void during_mod_init() {
+    // Place a biome at a specific noise point
+    BiomePlacement.addNether(ModBiomeKeys.LUMINOUS_GROVE, MultiNoiseUtil.createNoiseHypercube(0.35F, 0.3F, 0.0F, 0.0F, 0.0F, 0.0F, 0.225F)); }
+
+    // replace a vanilla biome 20% of the time
+    BiomePlacement.replaceOverworld(BiomeKeys.FOREST, ModBiomeKeys.AUTUMNAL_WOODS, 0.2D);
+
+    // add an edge sub-biome
+    BiomePlacement.addSubOverworld(BiomeKeys.DESERT, ModBiomeKeys.OASIS, SubBiomeMatcher.of(SubBiomeMatcher.NEAR_BORDER));
+
+    // add a sub-biome based on noise
+    BiomePlacement.addSubOverworld(ModBiomeKeys.LUSH_DESERT, ModBiomeKeys.OASIS, SubBiomeMatcher.of(SubBiomeMatcher.Criterion.ofMax(SubBiomeMatcher.CriterionTargets.PEAKS_VALLEYS, SubBiomeMatcher.CriterionTypes.DISTANCE, 0.2f)));
+
+    // register surface rule(s)
+    SurfaceGeneration.addOverworldSurfaceRules(Identifier.of(Mod.MOD_ID, "surface_rules"), modSurfaceRules);
+
+    // use surface builders
+    // See the javadocs for this; surface builders are a complicated topic.
+    // See also: [Terrestria's surface builders](https://github.com/TerraformersMC/Terrestria/tree/1.19.3/worldgen/src/main/java/com/terraformersmc/terrestria/surfacebuilders)
+}
+```
