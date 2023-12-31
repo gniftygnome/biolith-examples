@@ -8,13 +8,13 @@ add further usage examples to this mod.
 
 ## Mod Configuration
 
-Fabric: [fabric/build.gradle]()<br/>
-Forge: [forge/build.gradle]()<br/>
-NeoForge: [neoforge/build.gradle]()<br/>
+* [Fabric](https://github.com/gniftygnome/biolith-examples/blob/master/fabric/build.gradle)
+* [Forge](https://github.com/gniftygnome/biolith-examples/blob/master/forge/build.gradle)
+* [NeoForge](https://github.com/gniftygnome/biolith-examples/blob/master/neoforge/build.gradle)
 
 ## Biome Placement
 
-Testing placements are here: [common/src/main/java/com/terraformersmc/biolithexamples/BiolithExamples.java]()
+Testing placements are here: [BiolithExamples.java](https://github.com/gniftygnome/biolith-examples/blob/master/common/src/main/java/com/terraformersmc/biolithexamples/BiolithExamples.java)
 
 Things to check when testing Biolith with this mod:
 * In the Overworld, Crimson Forest should be placed somewhere near Deserts/Jungles, and the features should generate.
