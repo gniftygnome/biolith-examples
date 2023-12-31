@@ -1,0 +1,29 @@
+modLoader = "javafml"
+loaderVersion = "[1,)"
+issueTrackerURL = "https://github.com/TerraformersMC/biolith-examples/issues"
+license = "MIT"
+
+[[mods]]
+modId = "biolith_examples"
+version = "${version}"
+displayName = "Biolith Examples"
+displayURL="https://github.com/TerraformersMC/biolith"
+authors = "TerraformersMC, gniftygnome"
+description = '''
+Examples for Terraformers' Biolith worldgen utilities
+'''
+logoFile = "assets/biolith_examples/logo.png"
+
+[[dependencies.biolith_examples]]
+modId = "neoforge"
+type = "required"
+versionRange = "[20.4,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.biolith_examples]]
+modId = "minecraft"
+type = "required"
+versionRange = "[1.20.4,1.21)"
+ordering = "NONE"
+side = "BOTH"

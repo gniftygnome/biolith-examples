@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "id": "biolith_examples",
+  "version": "${version}",
+  "name": "Biolith Examples",
+  "description": "Examples for Terraformers' Biolith worldgen utilities",
+  "authors": [
+    "TerraformersMC",
+    "gniftygnome"
+  ],
+  "contact": {
+    "homepage": "https://github.com/TerraformersMC/biolith",
+    "sources": "https://github.com/TerraformersMC/biolith-examples"
+  },
+  "license": "MIT",
+  "icon": "assets/biolith_examples/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.terraformersmc.biolithexamples.BiolithExamplesInit"
+    ]
+  },
+  "depends": {
+    "fabric": "*",
+    "minecraft": ">=1.20.4 <1.21"
+  }
+}
