@@ -31,6 +31,6 @@ side = "BOTH"
 [[dependencies.biolith_examples]]
 modId = "biolith"
 type = "required"
-versionRange = ""
+versionRange = "[1,)"
 ordering = "NONE"
 side = "BOTH"
