@@ -16,6 +16,7 @@ public class SurfaceRules {
 
     public static MaterialRule overworld() {
         // Biome-level rules
+        MaterialRule birchForest = condition(MaterialRules.biome(BiomeKeys.BIRCH_FOREST), block(Blocks.CALCITE));
         MaterialRule crimsonForest = condition(MaterialRules.biome(BiomeKeys.CRIMSON_FOREST), sequence(
                 condition(STONE_DEPTH_FLOOR,
                         MaterialRules.sequence(
@@ -30,7 +31,7 @@ public class SurfaceRules {
                 block(Blocks.NETHERRACK)));
 
         // Return a surface-only sequence of our surface rules
-        return condition(surface(), sequence(crimsonForest, warpedForest));
+        return condition(surface(), sequence(birchForest, crimsonForest, warpedForest));
     }
 
     public static MaterialRule nether() {

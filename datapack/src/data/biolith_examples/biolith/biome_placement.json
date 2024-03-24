@@ -1,0 +1,56 @@
+{
+  "additions": [
+    {
+      "dimension": "minecraft:overworld",
+      "biome": "minecraft:crimson_forest",
+      "noise": {
+        "temperature": { "min": -1.0, "max": -0.15 },
+        "humidity": { "min": -1.0, "max": -0.35 },
+        "continentalness": { "min": 0.3, "max": 1.0 },
+        "erosion": { "min": -0.375, "max": 0.05 },
+        "depth": { "min": 0.0, "max": 0.0 },
+        "weirdness": { "min": 0.0, "max": 1.0 },
+        "offset": 0.0
+      }
+    }
+  ],
+  "removals": [
+    {
+      "dimension": "minecraft:overworld",
+      "biome": "minecraft:cherry_grove"
+    }
+  ],
+  "replacements": [
+    {
+      "dimension": "minecraft:overworld",
+      "target": "minecraft:plains",
+      "biome": "minecraft:warped_forest"
+    },
+    {
+      "dimension": "minecraft:the_nether",
+      "target": "minecraft:warped_forest",
+      "biome": "minecraft:end_highlands"
+    },
+    {
+      "dimension": "minecraft:the_end",
+      "target": "minecraft:end_highlands",
+      "biome": "minecraft:plains"
+    }
+  ],
+  "sub_biomes": [
+    {
+      "dimension": "minecraft:overworld",
+      "target": "minecraft:desert",
+      "biome": "minecraft:old_growth_pine_taiga",
+      "matcher": {
+        "criteria": [
+          {
+            "target": "center",
+            "type": "ratio",
+            "max": 0.2
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+tasks.register('build', Zip) {
+    archiveFileName = "${project.archives_base_name}-datapack-v${project.version}.zip"
+    destinationDirectory = layout.buildDirectory.dir('dist')
+
+    from layout.projectDirectory.dir("src")
+}
+
+tasks.register('clean') {
+    delete(layout.buildDirectory.dir('dist'))
+}
