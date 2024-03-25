@@ -20,13 +20,16 @@ public class BiolithExamples {
         // temperature, humidity, continentalness, erosion, depth, weirdness, offset
         BiomePlacement.addOverworld(BiomeKeys.CRIMSON_FOREST,
                 new MultiNoiseUtil.NoiseHypercube(
-                        MultiNoiseUtil.ParameterRange.of(0.25f, 0.75f),
-                        MultiNoiseUtil.ParameterRange.of(-0.75f, -0.25f),
-                        MultiNoiseUtil.ParameterRange.of(0.5f, 1.0f),
-                        MultiNoiseUtil.ParameterRange.of(-1.0f, 1.0f),
+                        MultiNoiseUtil.ParameterRange.of(-1.0f, -0.15f),
+                        MultiNoiseUtil.ParameterRange.of(-1.0f, -0.35f),
+                        MultiNoiseUtil.ParameterRange.of(0.3f, 1.0f),
+                        MultiNoiseUtil.ParameterRange.of(-0.375f, 0.05f),
                         MultiNoiseUtil.ParameterRange.of(0.0f),
-                        MultiNoiseUtil.ParameterRange.of(-1.0f, 1.0f),
+                        MultiNoiseUtil.ParameterRange.of(0.0f, 1.0f),
                         0L));
+
+        // Remove an unlucky biome from the Overworld.
+        BiomePlacement.removeOverworld(BiomeKeys.CHERRY_GROVE);
 
         // Misregister some cross-dimensional biomes for fun and profit!
         BiomePlacement.replaceOverworld(BiomeKeys.PLAINS, BiomeKeys.WARPED_FOREST);
@@ -34,7 +37,9 @@ public class BiolithExamples {
         BiomePlacement.replaceEnd(BiomeKeys.END_HIGHLANDS, BiomeKeys.PLAINS);
 
         // Surface rules to go with the misregistered biomes...
-        // Compatibility NOTE: TerraBlender will only use the rule if the namespace matches that of the biome.
+        // Compatibility NOTES:
+        //      TerraBlender will only use a rule if the namespace matches that of the biome.
+        //      TerraBlender will not accept rules targeting vanilla biomes (f.e. the ones below).
         SurfaceGeneration.addOverworldSurfaceRules(Identifier.of("minecraft", "rules/overworld"), SurfaceRules.overworld());
         SurfaceGeneration.addNetherSurfaceRules(Identifier.of("minecraft", "rules/nether"), SurfaceRules.nether());
         SurfaceGeneration.addEndSurfaceRules(Identifier.of("minecraft", "rules/end"), SurfaceRules.end());
