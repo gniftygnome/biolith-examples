@@ -17,9 +17,9 @@ add further usage examples to this mod.
 Testing placements are here: [BiolithExamples.java](https://github.com/gniftygnome/biolith-examples/blob/master/common/src/main/java/com/terraformersmc/biolithexamples/BiolithExamples.java)
 
 Things to check when testing Biolith with this mod:
-* In the Overworld, Crimson Forest should be placed somewhere near Deserts/Jungles, and the features should generate.
+* In the Overworld, Cherry Grove is removed and roughly replaced by Crimson forest, and the features should generate.
 * In the Overworld, all Plains should be replaced with Warped Forest, and the features should generate.
-* In the Overworld, a portion generally less than 20% of Deserts should be replaced by Mega Taiga.
+* In the Overworld, a portion generally less than 20% of Deserts should be replaced by Mega Pine Taiga.
 * In the Nether, all Warped Forests should be replaced with End Highlands (features do not generate).
 * In the End, all End Highlands should be replaced with Plains, and the features should generate (villages too).
 
@@ -41,9 +41,7 @@ to the dependencies section of `build.gradle`:
 
 ```
 dependencies {
-    modImplementation("com.terraformersmc:biolith-fabric:${project.biolith_version}") {
-		exclude(group: "com.github.glitchfiend")
-	}
+    modImplementation("com.terraformersmc:biolith-fabric:${project.biolith_version}")
 }
 ```
 
@@ -52,7 +50,7 @@ If you wish to include Biolith in your mod for distribution, wrap the `modImplem
 Finally, set the Biolith version you want in `gradle.properties`:
 
 ```
-biolith_version=1.2.0-alpha.2
+biolith_version=1.2.0-beta.3
 ```
 
 For convenience, [Biolith can also be downloaded from Modrinth](https://modrinth.com/mod/biolith).
