@@ -42,14 +42,10 @@
       "dimension": "minecraft:overworld",
       "target": "minecraft:desert",
       "biome": "minecraft:old_growth_pine_taiga",
-      "matcher": {
-        "criteria": [
-          {
-            "target": "center",
-            "type": "ratio",
-            "max": 0.2
-          }
-        ]
+      "criterion": {
+        "type": "biolith:ratio",
+        "target": "center",
+        "max": 0.2
       }
     }
   ]

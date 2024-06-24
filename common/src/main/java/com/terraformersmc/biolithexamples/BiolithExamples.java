@@ -1,7 +1,7 @@
 package com.terraformersmc.biolithexamples;
 
 import com.terraformersmc.biolith.api.biome.BiomePlacement;
-import com.terraformersmc.biolith.api.biome.SubBiomeMatcher;
+import com.terraformersmc.biolith.api.biome.sub.CriterionBuilder;
 import com.terraformersmc.biolith.api.surface.SurfaceGeneration;
 import com.terraformersmc.biolithexamples.surface.SurfaceRules;
 import net.minecraft.util.Identifier;
@@ -45,6 +45,6 @@ public class BiolithExamples {
         SurfaceGeneration.addEndSurfaceRules(Identifier.of("minecraft", "rules/end"), SurfaceRules.end());
 
         // Check the sub-biome system.
-        BiomePlacement.addSubOverworld(BiomeKeys.DESERT, BiomeKeys.OLD_GROWTH_PINE_TAIGA, SubBiomeMatcher.of(SubBiomeMatcher.NEAR_INTERIOR));
+        BiomePlacement.addSubOverworld(BiomeKeys.DESERT, BiomeKeys.OLD_GROWTH_PINE_TAIGA, CriterionBuilder.NEAR_INTERIOR);
     }
 }
