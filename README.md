@@ -62,14 +62,17 @@ public void during_mod_init() {
     // Place a biome at a specific noise point
     BiomePlacement.addNether(ModBiomeKeys.LUMINOUS_GROVE, MultiNoiseUtil.createNoiseHypercube(0.35F, 0.3F, 0.0F, 0.0F, 0.0F, 0.0F, 0.225F)); }
 
-    // replace a vanilla biome 20% of the time
+    // Remove an unlucky biome from the Overworld.
+    BiomePlacement.removeOverworld(BiomeKeys.CHERRY_GROVE);
+
+        // replace a vanilla biome 20% of the time
     BiomePlacement.replaceOverworld(BiomeKeys.FOREST, ModBiomeKeys.AUTUMNAL_WOODS, 0.2D);
 
     // add an edge sub-biome
     BiomePlacement.addSubOverworld(BiomeKeys.DESERT, ModBiomeKeys.OASIS, SubBiomeMatcher.of(SubBiomeMatcher.NEAR_BORDER));
 
     // add a sub-biome based on noise
-    BiomePlacement.addSubOverworld(ModBiomeKeys.LUSH_DESERT, ModBiomeKeys.OASIS, SubBiomeMatcher.of(SubBiomeMatcher.Criterion.ofMax(SubBiomeMatcher.CriterionTargets.PEAKS_VALLEYS, SubBiomeMatcher.CriterionTypes.DISTANCE, 0.2f)));
+    BiomePlacement.addSubOverworld(ModBiomeKeys.LUSH_DESERT, ModBiomeKeys.OASIS, CriterionBuilder.deviationMax(BiomeParameterTargets.PEAKS_VALLEYS, 0.2f));
 
     // register surface rule(s)
     SurfaceGeneration.addOverworldSurfaceRules(Identifier.of(Mod.MOD_ID, "surface_rules"), modSurfaceRules);

@@ -5,7 +5,7 @@
 * Put everything at the level of this readme in a zip file, and
 * Place the zip file in the Minecraft server's (or integrated) datapacks directory, and
 * Add [Biolith](https://modrinth.com/mod/biolith/versions) for your mod loader of choice to your mods.
-  * For this version of the datapack, the minimum Biolith version is 2.0.0-alpha.1.
+  * For this version of the datapack, the minimum Biolith version is 3.0.0-alpha.1.
 
 ## What this pack should change in world generation
 
