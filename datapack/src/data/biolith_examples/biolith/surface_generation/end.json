@@ -1,0 +1,59 @@
+{
+  "surface_rules": [
+    {
+      "dimension": "minecraft:the_end",
+      "rules_owner": "minecraft:rules/end",
+      "material_rules": [
+        {
+          "type": "minecraft:condition",
+          "if_true": {
+            "type": "minecraft:biome",
+            "biome_is": [
+              "minecraft:plains"
+            ]
+          },
+          "then_run": {
+            "type": "minecraft:sequence",
+            "sequence": [
+              {
+                "type": "minecraft:condition",
+                "if_true": {
+                  "type": "minecraft:stone_depth",
+                  "surface_type": "floor",
+                  "add_surface_depth": false,
+                  "secondary_depth_range": 0,
+                  "offset": 0
+                },
+                "then_run": {
+                  "type": "minecraft:block",
+                  "result_state": {
+                    "Name": "minecraft:grass_block",
+                    "Properties": {
+                      "snowy": "false"
+                    }
+                  }
+                }
+              },
+              {
+                "type": "minecraft:condition",
+                "if_true": {
+                  "type": "minecraft:stone_depth",
+                  "surface_type": "floor",
+                  "add_surface_depth": true,
+                  "secondary_depth_range": 0,
+                  "offset": 0
+                },
+                "then_run": {
+                  "type": "minecraft:block",
+                  "result_state": {
+                    "Name": "minecraft:dirt"
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

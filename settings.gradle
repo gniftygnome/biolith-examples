@@ -20,5 +20,5 @@ rootProject.name = "biolith-examples"
 include("common")
 include("fabric")
 //include("forge")
-include("neoforge")
+//include("neoforge")
 include("datapack")

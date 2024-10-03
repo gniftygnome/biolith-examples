@@ -1,0 +1,9 @@
+{
+  "replacements": [
+    {
+      "dimension": "minecraft:the_nether",
+      "target": "minecraft:warped_forest",
+      "biome": "minecraft:end_highlands"
+    }
+  ]
+}

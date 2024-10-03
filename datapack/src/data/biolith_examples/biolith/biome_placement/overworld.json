@@ -25,16 +25,6 @@
       "dimension": "minecraft:overworld",
       "target": "minecraft:plains",
       "biome": "minecraft:warped_forest"
-    },
-    {
-      "dimension": "minecraft:the_nether",
-      "target": "minecraft:warped_forest",
-      "biome": "minecraft:end_highlands"
-    },
-    {
-      "dimension": "minecraft:the_end",
-      "target": "minecraft:end_highlands",
-      "biome": "minecraft:plains"
     }
   ],
   "sub_biomes": [

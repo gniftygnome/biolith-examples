@@ -1,0 +1,9 @@
+{
+  "replacements": [
+    {
+      "dimension": "minecraft:the_end",
+      "target": "minecraft:end_highlands",
+      "biome": "minecraft:plains"
+    }
+  ]
+}
