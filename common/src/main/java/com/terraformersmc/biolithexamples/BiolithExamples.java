@@ -40,9 +40,9 @@ public class BiolithExamples {
         // Compatibility NOTES:
         //      TerraBlender will only use a rule if the namespace matches that of the biome.
         //      TerraBlender will not accept rules targeting vanilla biomes (f.e. the ones below).
-        SurfaceGeneration.addOverworldSurfaceRules(Identifier.fromNamespaceAndPath("minecraft", "rules/overworld"), ExampleSurfaceRules.overworld());
-        SurfaceGeneration.addNetherSurfaceRules(Identifier.fromNamespaceAndPath("minecraft", "rules/nether"), ExampleSurfaceRules.nether());
-        SurfaceGeneration.addEndSurfaceRules(Identifier.fromNamespaceAndPath("minecraft", "rules/end"), ExampleSurfaceRules.end());
+        SurfaceGeneration.addOverworldSurfaceRules(Identifier.fromNamespaceAndPath("minecraft", "rules/overworld"), ExampleSurfaceRules::overworld);
+        SurfaceGeneration.addNetherSurfaceRules(Identifier.fromNamespaceAndPath("minecraft", "rules/nether"), ExampleSurfaceRules::nether);
+        SurfaceGeneration.addEndSurfaceRules(Identifier.fromNamespaceAndPath("minecraft", "rules/end"), ExampleSurfaceRules::end);
 
         // Check the sub-biome system.
         BiomePlacement.addSubOverworld(Biomes.DESERT, Biomes.OLD_GROWTH_PINE_TAIGA, CriterionBuilder.NEAR_INTERIOR);

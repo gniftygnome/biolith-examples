@@ -1,5 +1,7 @@
 package com.terraformersmc.biolithexamples.surface;
 
+import net.minecraft.core.HolderGetter;
+import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.Biomes;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -14,19 +16,19 @@ public class ExampleSurfaceRules {
         return state(block.defaultBlockState());
     }
 
-    public static RuleSource overworld() {
+    public static RuleSource overworld(HolderGetter<Biome> biomeGetter) {
         // Biome-level rules
-        RuleSource birchForest = ifTrue(isBiome(Biomes.BIRCH_FOREST), block(Blocks.CALCITE));
-        RuleSource crimsonForest = ifTrue(isBiome(Biomes.CRIMSON_FOREST), sequence(
+        RuleSource birchForest = ifTrue(isBiome(biomeGetter, Biomes.BIRCH_FOREST), block(Blocks.CALCITE));
+        RuleSource crimsonForest = ifTrue(isBiome(biomeGetter, Biomes.CRIMSON_FOREST), sequence(
                 ifTrue(ON_FLOOR,
                         sequence(
-                                ifTrue(noiseCondition(Noises.NETHER_WART, 1.17), block(Blocks.NETHER_WART_BLOCK)),
+                                ifTrue(noiseCondition2d(Noises.NETHER_WART, 1.17), block(Blocks.NETHER_WART_BLOCK)),
                                 block(Blocks.CRIMSON_NYLIUM))),
                 block(Blocks.NETHERRACK)));
-        RuleSource warpedForest = ifTrue(isBiome(Biomes.WARPED_FOREST), sequence(
+        RuleSource warpedForest = ifTrue(isBiome(biomeGetter, Biomes.WARPED_FOREST), sequence(
                 ifTrue(ON_FLOOR,
                         sequence(
-                                ifTrue(noiseCondition(Noises.NETHER_WART, 1.17), block(Blocks.WARPED_WART_BLOCK)),
+                                ifTrue(noiseCondition2d(Noises.NETHER_WART, 1.17), block(Blocks.WARPED_WART_BLOCK)),
                                 block(Blocks.WARPED_NYLIUM))),
                 block(Blocks.NETHERRACK)));
 
@@ -34,9 +36,9 @@ public class ExampleSurfaceRules {
         return ifTrue(abovePreliminarySurface(), sequence(birchForest, crimsonForest, warpedForest));
     }
 
-    public static RuleSource nether() {
+    public static RuleSource nether(HolderGetter<Biome> biomeGetter) {
         // Biome-level rules
-        RuleSource endHighlands = SurfaceRules.ifTrue(SurfaceRules.isBiome(Biomes.END_HIGHLANDS), block(Blocks.END_STONE));
+        RuleSource endHighlands = SurfaceRules.ifTrue(SurfaceRules.isBiome(biomeGetter, Biomes.END_HIGHLANDS), block(Blocks.END_STONE));
 
         // Return a sequence of our surface rules, preserving the bedrock floor and roof
         return SurfaceRules.sequence(
@@ -45,9 +47,9 @@ public class ExampleSurfaceRules {
                 endHighlands);
     }
 
-    public static RuleSource end() {
+    public static RuleSource end(HolderGetter<Biome> biomeGetter) {
         // Biome-level rules
-        RuleSource plains = SurfaceRules.ifTrue(SurfaceRules.isBiome(Biomes.PLAINS), sequence(
+        RuleSource plains = SurfaceRules.ifTrue(SurfaceRules.isBiome(biomeGetter, Biomes.PLAINS), sequence(
                 ifTrue(ON_FLOOR, block(Blocks.GRASS_BLOCK)),
                 ifTrue(UNDER_FLOOR, block(Blocks.DIRT))));
 
