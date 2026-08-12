@@ -1,32 +1,29 @@
 plugins {
-    id "architectury-plugin" version "3.4-SNAPSHOT"
-    id "dev.architectury.loom" version "1.13-SNAPSHOT" apply(false)
-}
-
-architectury {
-    minecraft = rootProject.minecraft_version
+    id 'org.relativitymc.neo-loom' version '1.16.+' apply false
 }
 
 subprojects {
     if (!it.name.startsWith('datapack')) {
-        apply plugin: "dev.architectury.loom"
+        apply plugin: 'idea'
+        apply plugin: 'java'
+        apply plugin: 'java-library'
+        apply plugin: 'maven-publish'
+        apply plugin: 'org.relativitymc.neo-loom'
 
-        loom {
-            silentMojangMappingsLicense()
-        }
-
-        dependencies {
-            minecraft "com.mojang:minecraft:${rootProject.minecraft_version}"
-            mappings loom.officialMojangMappings()
-        }
+        project.base.archivesName = "${rootProject.archives_base_name}-${project.name}"
     }
 }
 
-allprojects {
+tasks.register('build') {
+    group = "build"
+}
+
+subprojects {
     if (!it.name.startsWith('datapack')) {
-        apply plugin: "java"
-        apply plugin: "architectury-plugin"
-        apply plugin: "maven-publish"
+        group = rootProject.maven_group
+        version = rootProject.mod_version
+
+        java.toolchain.languageVersion = JavaLanguageVersion.of(project.java_version)
 
         repositories {
             mavenLocal()
@@ -37,20 +34,55 @@ allprojects {
             }
         }
 
-        tasks.withType(JavaCompile) {
-            options.encoding = "UTF-8"
-            options.release = 21
+        dependencies {
+            minecraft "com.mojang:minecraft:${project.minecraft_version}"
         }
 
-        java {
-            withSourcesJar()
+        // Hack to allow calling build via root project
+        rootProject.tasks.build.dependsOn(it.tasks.build)
+
+        jar {
+            from(rootProject.file('LICENSE'))
+        }
+
+        tasks.withType(JavaCompile).configureEach {
+            it.options.encoding = 'UTF-8'
+            it.options.getRelease().set(25)
+        }
+
+        idea {
+            module {
+                downloadSources = true
+                downloadJavadoc = true
+            }
+        }
+
+        // Configuration that applies to all subprojects except :common
+        if (it.name != "common") {
+            configurations {
+                commonJava {
+                    canBeResolved = true
+                }
+                commonResources {
+                    canBeResolved = true
+                }
+            }
+
+            dependencies {
+                compileOnly project(':common')
+                commonJava project(path: ':common', configuration: 'commonJava')
+                commonResources project(path: ':common', configuration: 'commonResources')
+            }
+
+            tasks.named('compileJava', JavaCompile) {
+                dependsOn(configurations.commonJava)
+                source(configurations.commonJava)
+            }
+
+            processResources {
+                dependsOn(configurations.commonResources)
+                from(configurations.commonResources)
+            }
         }
     }
-
-    base {
-        archivesName = rootProject.archives_base_name
-    }
-
-    version = rootProject.mod_version
-    group = rootProject.maven_group
 }

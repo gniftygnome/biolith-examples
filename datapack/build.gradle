@@ -1,5 +1,5 @@
 tasks.register('build', Zip) {
-    archiveFileName = "${project.archives_base_name}-datapack-v${project.version}.zip"
+    archiveFileName = "${rootProject.archives_base_name}-datapack-v${rootProject.mod_version}.zip"
     destinationDirectory = layout.buildDirectory.dir('dist')
 
     from layout.projectDirectory.dir("src")
