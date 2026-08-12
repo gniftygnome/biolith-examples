@@ -24,7 +24,7 @@ side = "BOTH"
 [[dependencies.biolith_examples]]
 modId = "minecraft"
 mandatory = true
-versionRange = "[1.20.4,1.21)"
+versionRange = "[1.21.11,26)"
 ordering = "NONE"
 side = "BOTH"
 
