@@ -26,12 +26,7 @@
                 },
                 "then_run": {
                   "type": "minecraft:block",
-                  "result_state": {
-                    "Name": "minecraft:grass_block",
-                    "Properties": {
-                      "snowy": "false"
-                    }
-                  }
+                  "result_state": "minecraft:grass_block"
                 }
               },
               {
@@ -45,9 +40,7 @@
                 },
                 "then_run": {
                   "type": "minecraft:block",
-                  "result_state": {
-                    "Name": "minecraft:dirt"
-                  }
+                  "result_state": "minecraft:dirt"
                 }
               }
             ]

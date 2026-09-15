@@ -18,9 +18,7 @@
           },
           "then_run": {
             "type": "minecraft:block",
-            "result_state": {
-              "Name": "minecraft:bedrock"
-            }
+            "result_state": "minecraft:bedrock"
           }
         },
         {
@@ -40,24 +38,18 @@
           },
           "then_run": {
             "type": "minecraft:block",
-            "result_state": {
-              "Name": "minecraft:bedrock"
-            }
+            "result_state": "minecraft:bedrock"
           }
         },
         {
           "type": "minecraft:condition",
           "if_true": {
             "type": "minecraft:biome",
-            "biome_is": [
-              "minecraft:end_highlands"
-            ]
+            "biome_is": "minecraft:end_highlands"
           },
           "then_run": {
             "type": "minecraft:block",
-            "result_state": {
-              "Name": "minecraft:end_stone"
-            }
+            "result_state": "minecraft:end_stone"
           }
         }
       ]
